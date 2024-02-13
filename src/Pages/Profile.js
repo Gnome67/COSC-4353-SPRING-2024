@@ -4,28 +4,25 @@ import "./Profile.css"
 export default function Profile() {
   return (
     <div id="profileForm">
-        <center><h2>Profile Customization</h2></center>
-        <form action="1987505-thankyou.html">
-            <table id="userInfo">
-                <tr class="field">
-                    <th>Full Name</th>
-                    <th><input id="text" type="text" name="first name" size="30" maxlength="50" required/></th>
-                </tr>
+        <h1 id="title">Profile Customization</h1>
+        <form>
+                <div className="field">
+                    <label>Full Name</label>
+                    <input id="text" type="text" name="first name" size="30" maxlength="50" required/>
+                </div>
 
 
-                <tr class="field">
-                    <th>Address Line 1</th>
-                    <th><input id="text" type="text" name="address 1" size="30" maxlength="100" required/></th>
+                <div className="field">
+                    <label>Address Line 1</label>
+                    <input id="text" type="text" name="address 1" size="30" maxlength="100" required/>
+                    <label>Address Line 2</label>
+                    <input id="text" type="text" name="address 2" size="30" maxlength="100" />
+                </div>
 
-                    <th>Address Line 2</th>
-                    <th><input id="text" type="text" name="address 2" size="30" maxlength="100" /></th>
-                </tr>
-
-                <tr class="field">
-                    <th>City</th>
-                    <th><input id="text" type="text" name="city" size="30" maxlength="30" required/></th>
-
-                    <th>State</th>
+                <div class="field">
+                    <label>City</label>
+                    <input id="text" type="text" name="city" size="30" maxlength="30" required/>
+                    <label>State</label>
                     <th class="leftInput"><select name="state" required>
                             <option selected="" value="Default">Please select a state</option>
                             <option value="AL">Alabama</option>
@@ -82,15 +79,14 @@ export default function Profile() {
                         </select>
                     </th>
 
-                    <th>Zip Code</th>
+                    <label>Zip Code</label>
                     <th class="leftInput"><input id="text" type="text" name="zip" size="11" maxlength="9" minlength="5" required/></th>
-                </tr>
-            </table>
+                </div>
 
             <table id="button">
                 <tr>
-                    <th><input type="reset" name="clear/reset" value="Reset" id="resetButton" /></th>
-                    <th><input type="submit" name="submit" value="Submit" id="submitButton" /></th>
+                    <label><input type="reset" name="clear/reset" value="Reset" id="resetButton" /></label>
+                    <label><input type="submit" name="submit" value="Submit" id="submitButton" /></label>
                 </tr>
             </table>
         </form>

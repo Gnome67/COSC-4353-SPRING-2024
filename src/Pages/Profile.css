@@ -2,6 +2,14 @@ body{
     background-color: rgb(173, 216,230);
 }
 
+#title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-align: left;
+    padding-left: 2%;
+}
+
 #text {
     border-radius: 10px;
     border: 1px solid #f1a140;
@@ -63,5 +71,5 @@ body{
 }
 
 .field {
-    margin-left: 500px;
+    padding: 0;
 }
