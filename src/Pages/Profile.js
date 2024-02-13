@@ -4,7 +4,7 @@ import "./Profile.css"
 export default function Profile() {
   return (
     <div id="profileForm">
-        <h2>Registration Form</h2>
+        <h2>Profile Customization</h2>
         <form action="1987505-thankyou.html">
             <table id="userInfo">
                 <tr>
@@ -15,10 +15,10 @@ export default function Profile() {
 
                 <tr>
                     <th>Address Line 1</th>
-                    <th><input id="text" type="text" name="address 1" size="30" maxlength="30" required/></th>
+                    <th><input id="text" type="text" name="address 1" size="30" maxlength="100" required/></th>
 
                     <th>Address Line 2</th>
-                    <th><input id="text" type="text" name="address 2" size="30" maxlength="30" /></th>
+                    <th><input id="text" type="text" name="address 2" size="30" maxlength="100" /></th>
                 </tr>
 
                 <tr>
@@ -83,11 +83,16 @@ export default function Profile() {
                     </th>
 
                     <th>Zip Code</th>
-                    <th class="leftInput"><input id="text" type="text" name="zip" size="11" maxlength="10" minlength="5" required/></th>
+                    <th class="leftInput"><input id="text" type="text" name="zip" size="11" maxlength="9" minlength="5" required/></th>
                 </tr>
             </table>
 
-            <hr id="contentBreak"></hr>
+            <table id="button">
+                <tr>
+                    <th><input type="reset" name="clear/reset" value="Reset" id="resetButton" /></th>
+                    <th><input type="submit" name="submit" value="Submit" id="submitButton" /></th>
+                </tr>
+            </table>
         </form>
     </div>
   )
