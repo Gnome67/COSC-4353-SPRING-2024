@@ -61,3 +61,7 @@ body{
 #resetButton:hover {
     background-color: #d05757;
 }
+
+.field {
+    margin-left: 500px;
+}
