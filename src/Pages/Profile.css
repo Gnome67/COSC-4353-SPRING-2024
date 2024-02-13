@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(173, 216,230);
+}
+
+#text {
+    border-radius: 10px;
+    border: 1px solid #f1a140;
+    padding: 10px;
+    height: 2px;
+}
+
+#userInfo {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leftInput {
+    text-align: left;
+}
+
+#contentBreak {
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
