@@ -23,7 +23,7 @@ export default function Register() {
             <hr id="contentBreak"></hr>
         </form>
         <center>
-          <Link to="/">
+          <Link to="/Login">
             <button>Complete Registration</button>
           </Link>
         </center>
