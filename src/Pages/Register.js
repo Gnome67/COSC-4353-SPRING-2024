@@ -5,6 +5,7 @@ import "./Profile.css"
 export default function Register() {
   return (
     <div>
+        <center>
         <h1>Registration Form</h1>
             <table id="userInfo">
                 <tr>
@@ -16,6 +17,7 @@ export default function Register() {
                     <input id="text" type="text" name="password" size="30" maxlength="30" required/>
                 </tr>
             </table>
+        </center>
         <br></br>
         <center>
           <Link to="/Login">
