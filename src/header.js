@@ -5,23 +5,17 @@ import "./header.css"
 export default function Header() {
     return (
         <header>
-            <center>
                 <Link to="/">
-                    <button id>Home</button>
+                    <button id = "headerbutton">Home</button>
                 </Link>
-            </center>
 
-            <center>
                 <Link to="/Login">
-                    <button>Login</button>
+                    <button id = "headerbutton">Login</button>
                 </Link>
-            </center>
 
-            <center>
                 <Link to="/Register">
-                    <button>Register</button>
+                    <button id = "headerbutton">Register</button>
                 </Link>
-            </center>
         </header>
     )
 }

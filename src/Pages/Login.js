@@ -19,13 +19,13 @@ export default function Login() {
             <br></br>
             <center>
             <Link to="/Profile">
-              <button id = "leftbutton">Login</button>
+              <button id = "button">Login</button>
             </Link>
             </center>
             <br></br>
             <center>
             <Link to="/Register">
-              <button id = "rightbutton">Don't have an account? Register</button>
+              <button id = "button">Don't have an account? Register</button>
             </Link>
             </center>
     </div>
