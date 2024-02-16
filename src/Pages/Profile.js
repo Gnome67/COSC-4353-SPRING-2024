@@ -13,7 +13,7 @@ export default function Profile() {
                 </div>
                 <div className="input">
                     <label className="text-label">Address 1</label>
-                    <input className="text" type="text" name="Address 1" placeholder="Street Name/Addressr" maxlength="50" required/>
+                    <input className="text" type="text" name="Address 1" placeholder="Street Name/Address" maxlength="50" required/>
                 </div>
                 <div className="input">
                     <label className="text-label">Address 2</label>
