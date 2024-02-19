@@ -1,11 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import "./fuelQuoteForm.css"
+import "./QuoteHistory.css"
 
-export default function FuelQuoteForm() {
+export default function QuotePage() {
     return (
         <div>
-
+            
         </div>
     )
 }
