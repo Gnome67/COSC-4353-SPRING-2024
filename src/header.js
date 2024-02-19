@@ -16,6 +16,10 @@ export default function Header() {
                 <Link to="/Register">
                     <button id = "headerbutton">Register</button>
                 </Link>
+
+                <Link to="/Quote">
+                    <button id = "headerbutton">Quote</button>
+                </Link>
         </header>
     )
 }
