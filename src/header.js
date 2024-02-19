@@ -17,8 +17,12 @@ export default function Header() {
                     <button id = "headerbutton">Register</button>
                 </Link>
 
-                <Link to="/Quote">
-                    <button id = "headerbutton">Quote</button>
+                <Link to="/QuoteForm">
+                    <button id = "headerbutton">Quote Form</button>
+                </Link>
+
+                <Link to="/QuotePage">
+                    <button id = "headerbutton">Quote Page</button>
                 </Link>
         </header>
     )

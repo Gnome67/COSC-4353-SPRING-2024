@@ -5,6 +5,7 @@ import Profile from "./Pages/Profile";
 import Register from "./Pages/Register";
 import Header from "./header";
 import FuelQuoteForm from "./Pages/fuelQuoteForm";
+import QuotePage from "./Pages/QuoteHistory";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
 			<Route path="/Login" element={<Login />} />
 			<Route path="/Profile" element={<Profile />} />
 			<Route path="/Register" element={<Register />} />
-			<Route path="/Quote" element={<FuelQuoteForm />} />
+			<Route path="/QuoteForm" element={<FuelQuoteForm />} />
+			<Route path="/QuotePage" element={<QuotePage />} />
 		</Routes>
     </div>
   );
