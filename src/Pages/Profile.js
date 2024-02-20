@@ -5,9 +5,9 @@ import "./Profile.css"
 export default function Profile() {
   return (
     <div id="profileForm">
-        <h1 id="title">Profile Customization</h1>
         <form className="form-wrapper">
             <div className="form-container">
+            <h1 id="title">Profile Customization</h1>
                 <div className="input">
                     <label className="text-label">Full Name</label>
                     <input className="text" type="text" name="Full Name" placeholder="Enter Full Name" maxlength="50" required/>
@@ -34,9 +34,9 @@ export default function Profile() {
                         <input className="text" type="text" name="Zip Code" placeholder="Zip Code" maxlength="7" required/>
                     </div>
                 </div>
-            </div>
-            <div className="button-wrapper">
+                <div className="button-wrapper">
                 <button id="submit-button">Confirm Changes</button>
+                </div>
             </div>
         </form>
     </div>

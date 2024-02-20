@@ -26,6 +26,13 @@ body{
     width: 50rem;
 }
 
+.form-container {
+    background-color: rgb(220, 220, 220);
+    margin-top: 2rem;
+    margin-left: 0;
+    padding: 5px;
+}
+
 .text {
     padding: 0 .5rem;
     border-radius: 4px;
