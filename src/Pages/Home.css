@@ -1,35 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 body {
-    background-color: lightblue;
+    background-color: rgb(200, 231, 248);
     font-family: "Roboto", sans-serif;
-  }
+}
   
-  h1 {
+h1 {
     color: black;
     text-align: center;
     font-size:100px;
     font-family: "Roboto", sans-serif;
-  }
+}
   
-  p {
+p {
     font-family: verdana;
     font-size: 20px;
     font-family: "Roboto", sans-serif;
-  }
+}
 
-  #button {
-    background-color: lightblue;
+#button {
+    background-color: rgb(200, 231, 248);
     color: black;
     border: 0;
     font-size: 25px;
     padding:10px;
     margin: 50px;
     font-family: "Roboto", sans-serif;
+}
+
+#button:hover {
+    background-color: rgb(220, 239, 249);
+    color: black;
   }
 
-  #mydiv {
+#mydiv {
     margin-left: auto;
     margin-right: auto;
     font-family: "Roboto", sans-serif;
-  }
+}

@@ -35,7 +35,7 @@ export default function Profile() {
                     </div>
                 </div>
                 <div className="button-wrapper">
-                <button id="submit-button">Confirm Changes</button>
+                <button className="submit-button">Confirm Changes</button>
                 </div>
             </div>
         </form>

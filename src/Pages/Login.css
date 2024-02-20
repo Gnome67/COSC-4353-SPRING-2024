@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 body {
-    background-color: lightblue;
+    background-color: rgb(200, 231, 248);
     font-family: "Roboto", sans-serif;
   }
   
@@ -35,11 +35,16 @@ body {
   }
 
   #button {
-    background-color: lightblue;
+    background-color: rgb(200, 231, 248);
     color: black;
     border: 0;
     font-size: 25px;
     padding:10px;
     margin: auto;
     font-family: "Roboto", sans-serif;
+  }
+
+  #button:hover {
+    background-color: rgb(220, 239, 249);
+    color: black;
   }

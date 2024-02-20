@@ -4,25 +4,25 @@ import "./header.css"
 
 export default function Header() {
     return (
-        <header>
+        <header id="header"> 
                 <Link to="/">
-                    <button id = "headerbutton">Home</button>
+                    <button className="headerbutton">Home</button>
                 </Link>
 
                 <Link to="/Login">
-                    <button id = "headerbutton">Login</button>
+                    <button className="headerbutton">Login</button>
                 </Link>
 
                 <Link to="/Register">
-                    <button id = "headerbutton">Register</button>
+                    <button className="headerbutton">Register</button>
                 </Link>
 
                 <Link to="/QuoteForm">
-                    <button id = "headerbutton">Quote Form</button>
+                    <button className="headerbutton">Quote Form</button>
                 </Link>
 
                 <Link to="/QuotePage">
-                    <button id = "headerbutton">Quote Page</button>
+                    <button className="headerbutton">Quote Page</button>
                 </Link>
         </header>
     )

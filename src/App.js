@@ -6,11 +6,12 @@ import Register from "./Pages/Register";
 import Header from "./header";
 import FuelQuoteForm from "./Pages/fuelQuoteForm";
 import QuotePage from "./Pages/QuoteHistory";
+import "./App.css"
 
 function App() {
   return (
-    <div>
-		<Header />
+    <div className="app-container">
+		<Header />  
 		<Routes>
 			<Route path="/" element={<Home />}/>
 			<Route path="/Login" element={<Login />} />
