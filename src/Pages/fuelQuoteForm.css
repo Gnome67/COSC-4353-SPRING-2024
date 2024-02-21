@@ -20,3 +20,44 @@ header {
     font-size:20px;
     padding:10px;
   }
+
+  .street * {width:78.7%;}
+
+  h1 {
+    text-align:center;
+  }
+
+  #grid-container {  
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content:center;
+    margin-left: auto;
+    margin-right: auto;
+    width:800px;
+
+  }
+
+  #grid-container > div { padding:5px; text-align:center;}
+
+  #grid-a { grid-row:1/2; grid-column:1/4; }
+
+  #grid-b { grid-row:2/3; grid-column:1/4;}
+
+  #grid-c { grid-row:3/4; grid-column:1/4;}
+
+  #grid-d { grid-row:4/5; grid-column:1/2;}
+
+  #grid-e { grid-row:4/5; grid-column:2/3;}
+
+  #grid-f { grid-row:4/5; grid-column:3/4;}
+
+  #grid-g {grid-row:5/6; grid-column:1/4;}
+
+  #grid-h {grid-row:6/7; grid-column:1/4;}
+
+  #grid-i {grid-row:7/8; grid-column:1/4;}
+
+  #grid-j {grid-row:8/9; grid-column:1/4;}
+
+  #grid-k {grid-row:9/10; grid-column:1/4;}
