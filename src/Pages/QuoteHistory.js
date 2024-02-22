@@ -10,27 +10,27 @@ export default function QuotePage() {
     return (
         <div>
             <h1>Quote History</h1>
-            <table>
+            <table className='quoteTable'>
                 <thead>
                     <tr>
-                        <th>Quote ID</th>
-                        <th>Customer</th>
-                        <th>Gallons Requested</th>
-                        <th>Delivery Address</th>
-                        <th>Delivery Date</th>
-                        <th>Suggested Price</th>
-                        <th>Total Amount Due</th>
+                        <th className='quoteHeader'>Quote ID</th>
+                        <th className='quoteHeader'>Customer</th>
+                        <th className='quoteHeader'>Gallons Requested</th>
+                        <th className='quoteHeader'>Delivery Address</th>
+                        <th className='quoteHeader'>Delivery Date</th>
+                        <th className='quoteHeader'>Suggested Price</th>
+                        <th className='quoteHeader'>Total Amount Due</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>Taha Amir</td>
-                        <td>5</td>
-                        <td>251 Green Street</td>
-                        <td>2024-02-20</td>
-                        <td>$3</td>
-                        <td>2024-02-20</td>
+                        <td className='quoteData'>1</td>
+                        <td className='quoteData'>Taha Amir</td>
+                        <td className='quoteData'>5</td>
+                        <td className='quoteData'>251 Green Street</td>
+                        <td className='quoteData'>2024-02-20</td>
+                        <td className='quoteData'>$3</td>
+                        <td className='quoteData'>2024-02-20</td>
                     </tr>
                     {/* More Rows */}
                 </tbody>
