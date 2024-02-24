@@ -21,6 +21,10 @@
     margin-bottom: 2px; 
 }
 
+.required {
+    color: red;
+}
+
 .form-wrapper {
     padding: 10px;
     width: 50rem;

@@ -41,11 +41,11 @@ export default function Profile() {
             <div className="form-container">
             <h1 id="title">Profile Customization</h1>
                 <div className="input">
-                    <label className="text-label">Full Name</label>
+                    <label className="text-label">Full Name <span className="required">&#42;</span></label>
                     <input className="text" type="text" name="Full Name" placeholder="Enter Full Name" maxlength="50" required/>
                 </div>
                 <div className="input">
-                    <label className="text-label">Address 1</label>
+                    <label className="text-label">Address 1 <span className="required">&#42;</span></label>
                     <input className="text" type="text" name="Address 1" placeholder="Street Name/Address" maxlength="50" required/>
                 </div>
                 <div className="input">
@@ -54,16 +54,16 @@ export default function Profile() {
                 </div>
                 <div className="location-container">
                     <div className="input-city">
-                        <label className="text-label">City</label>
+                        <label className="text-label">City <span className="required">&#42;</span></label>
                         <input className="text" type="text" name="City" placeholder="City" maxlength="20" required/>
                     </div>
                     <div className="input">
-                        <label className="text-label">State</label>
+                        <label className="text-label">State <span className="required">&#42;</span></label>
                         <input className="text" id="stateInput" type="text" name="State" placeholder="State" maxlength="15" required/>
                         <span id="stateValidationMessage" style={{ color: 'red' }}></span>
                     </div>
                     <div className="input">
-                        <label className="text-label">Zip Code</label>
+                        <label className="text-label">Zip Code <span className="required">&#42;</span></label>
                         <input className="text" type="text" name="Zip Code" placeholder="Zip Code (5 digits)" pattern="[0-9]{5}" maxlength="7" required/>
                     </div>
                 </div>
