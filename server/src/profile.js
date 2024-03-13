@@ -36,7 +36,7 @@ const generateProfile = (username) => {
   }
 
   // Generating random profile data
-  profileData.fullName = 'peter'
+  profileData.fullName = 'Peter'
   profileData.address1 = '9703 Dunlap Ave'
   profileData.address2 = ''
   profileData.city = 'Cleveland'
