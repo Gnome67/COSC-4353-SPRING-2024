@@ -7,6 +7,11 @@ use cosc4353app;
 -- Create our tables
 
 -- User Table
+CREATE TABLE users (
+	username varchar(16) not null check(username regexp '^[a-zA-Z0-9]{3,}$'),
+        password char(44) not null check(password regexp '^[a-zA-Z0-9+/=]{44}$'),
+        primary key(username)
+);
 
 -- Profile Table
 CREATE TABLE profile (
