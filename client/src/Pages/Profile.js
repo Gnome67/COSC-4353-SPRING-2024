@@ -1,9 +1,64 @@
-import React, {useEffect} from 'react'
-import {Link} from 'react-router-dom';
+import React, {useEffect, useState} from 'react'
 import "./Profile.css"
 
 export default function Profile() {
+    const [profileData, setProfileData] = useState({
+        full_name: '',
+        email: '',
+        address1: '',
+        address2: '',
+        city: '',
+        state: '',
+        zipcode: '',
+        phone: '',
+        });
+
+        const handleChange = (e) => {
+        const { name, value } = e.target;
+        setProfileData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+        };
+
+        const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('/updateProfile', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(profileData),
+            });
+            const data = await response.json();
+            console.log(data); 
+            
+        } catch (error) {
+            console.error('Error updating profile:', error);
+        }
+        };
+    
+    
     useEffect(() => {
+        const fetchProfileData = async () => {
+            try {
+              const response = await fetch('/getProfile', {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: 'username' }),
+              });
+              const data = await response.json();
+              setProfileData(data); // Assuming backend returns profile data in JSON format, unsure how knexClient works
+            } catch (error) {
+              console.error('Error fetching profile data:', error);
+            }
+          };
+      
+          fetchProfileData();
+
         const validStates = [
           "Alabama", "Alaska", "Arizona", "Arkansas", "California",
           "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
@@ -37,39 +92,70 @@ export default function Profile() {
 
   return (
     <div id="profileForm">
-        <form className="form-wrapper">
+        <form className="form-wrapper" onSubmit={handleSubmit}>
             <div className="form-container">
             <h1 id="title">Profile Customization</h1>
                 <div className="input">
                     <label className="text-label">Full Name <span className="required">&#42;</span></label>
-                    <input className="text" type="text" name="Full Name" placeholder="Enter Full Name" maxlength="50" required/>
+                    <input className="text" id="full_name" type="text" name="Full Name" 
+                           placeholder="Enter Full Name" maxlength="50" 
+                           value={profileData.full_name}
+                           onChange={handleChange}
+                           required/>
                 </div>
                 <div className="input">
                     <label className="text-label">Address 1 <span className="required">&#42;</span></label>
-                    <input className="text" type="text" name="Address 1" placeholder="Street Name/Address" maxlength="50" required/>
+                    <input className="text" id="address1" type="text" name="Address 1" 
+                           placeholder="Street Name/Address" maxlength="50" 
+                           value={profileData.address1}
+                           onChange={handleChange}
+                           required/>
                 </div>
                 <div className="input">
                     <label className="text-label">Address 2</label>
-                    <input className="text" type="text" name="Address 2" placeholder="Apt Number" maxlength="50"/>
+                    <input className="text" id="add2" type="text" name="Address 2" 
+                           placeholder="Apt Number" maxlength="50"
+                           value={profileData.address1}
+                           onChange={handleChange}/>
                 </div>
                 <div className="location-container">
                     <div className="input-city">
                         <label className="text-label">City <span className="required">&#42;</span></label>
-                        <input className="text" type="text" name="City" placeholder="City" maxlength="20" required/>
+                        <input className="text" id="city" type="text" name="City" 
+                               placeholder="City" maxlength="20" 
+                               value={profileData.city}
+                               onChange={handleChange}
+                               required/>
                     </div>
                     <div className="input">
                         <label className="text-label">State <span className="required">&#42;</span></label>
-                        <input className="text" id="stateInput" type="text" name="State" placeholder="State" maxlength="15" required/>
+                        <input className="text" id="stateInput" type="text" name="State" 
+                               placeholder="State" maxlength="15" 
+                               value={profileData.state}
+                               onChange={handleChange}
+                               required/>
                         <span id="stateValidationMessage" style={{ color: 'red' }}></span>
                     </div>
                     <div className="input">
                         <label className="text-label">Zip Code <span className="required">&#42;</span></label>
-                        <input className="text" type="text" name="Zip Code" placeholder="Zip Code (5 digits)" pattern="[0-9]{5}" maxlength="7" required/>
+                        <input className="text" id="zipcode" type="text" name="Zip Code" 
+                               placeholder="Zip Code (5 digits)" pattern="[0-9]{5}" maxlength="7" 
+                               value={profileData.zipcode}
+                               onChange={handleChange}
+                               required/>
+                    </div>
+                    <div className="input-city">
+                        <label className="text-label">Phone Number <span className="required">&#42;</span></label>
+                        <input className="text" id="phone" type="text" name="Phone" 
+                               placeholder="000-000-0000" pattern="\d{3}-\d{3}-\d{4}" title="000-000-0000 format" maxlength="12" 
+                               value={profileData.phone}
+                               onChange={handleChange}
+                               required/>
                     </div>
                 </div>
-                <div className="button-wrapper">
-                <button className="submit-button">Confirm Changes</button>
-                </div>
+                    <div className="button-wrapper">
+                        <button className="submit-button">Confirm Changes</button>
+                    </div>
             </div>
         </form>
     </div>
