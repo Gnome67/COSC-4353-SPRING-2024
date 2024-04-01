@@ -97,15 +97,24 @@ export default function Profile() {
             <h1 id="title">Profile Customization</h1>
                 <div className="input">
                     <label className="text-label">Full Name <span className="required">&#42;</span></label>
-                    <input className="text" id="full_name" type="text" name="Full Name" 
+                    <input className="text" id="full_name" type="text" name="full_name" 
                            placeholder="Enter Full Name" maxlength="50" 
                            value={profileData.full_name}
                            onChange={handleChange}
                            required/>
                 </div>
                 <div className="input">
+                    <label className="text-label">Email <span className="required">&#42;</span></label>
+                    <input className="text" id="email" type="text" name="email" 
+                           placeholder="example@domain.com" maxlength="50" 
+                           pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Format is email@example.com"
+                           value={profileData.email}
+                           onChange={handleChange}
+                           required/>
+                </div>
+                <div className="input">
                     <label className="text-label">Address 1 <span className="required">&#42;</span></label>
-                    <input className="text" id="address1" type="text" name="Address 1" 
+                    <input className="text" id="address1" type="text" name="address1" 
                            placeholder="Street Name/Address" maxlength="50" 
                            value={profileData.address1}
                            onChange={handleChange}
@@ -113,15 +122,15 @@ export default function Profile() {
                 </div>
                 <div className="input">
                     <label className="text-label">Address 2</label>
-                    <input className="text" id="add2" type="text" name="Address 2" 
+                    <input className="text" id="add2" type="text" name="address2" 
                            placeholder="Apt Number" maxlength="50"
-                           value={profileData.address1}
+                           value={profileData.address2}
                            onChange={handleChange}/>
                 </div>
                 <div className="location-container">
                     <div className="input-city">
                         <label className="text-label">City <span className="required">&#42;</span></label>
-                        <input className="text" id="city" type="text" name="City" 
+                        <input className="text" id="city" type="text" name="city" 
                                placeholder="City" maxlength="20" 
                                value={profileData.city}
                                onChange={handleChange}
@@ -129,7 +138,7 @@ export default function Profile() {
                     </div>
                     <div className="input">
                         <label className="text-label">State <span className="required">&#42;</span></label>
-                        <input className="text" id="stateInput" type="text" name="State" 
+                        <input className="text" id="stateInput" type="text" name="state" 
                                placeholder="State" maxlength="15" 
                                value={profileData.state}
                                onChange={handleChange}
@@ -138,15 +147,15 @@ export default function Profile() {
                     </div>
                     <div className="input">
                         <label className="text-label">Zip Code <span className="required">&#42;</span></label>
-                        <input className="text" id="zipcode" type="text" name="Zip Code" 
+                        <input className="text" id="zipcode" type="text" name="zipcode" 
                                placeholder="Zip Code (5 digits)" pattern="[0-9]{5}" maxlength="7" 
                                value={profileData.zipcode}
                                onChange={handleChange}
                                required/>
                     </div>
-                    <div className="input-city">
+                    <div className="input">
                         <label className="text-label">Phone Number <span className="required">&#42;</span></label>
-                        <input className="text" id="phone" type="text" name="Phone" 
+                        <input className="text" id="phone" type="text" name="phone" 
                                placeholder="000-000-0000" pattern="\d{3}-\d{3}-\d{4}" title="000-000-0000 format" maxlength="12" 
                                value={profileData.phone}
                                onChange={handleChange}
