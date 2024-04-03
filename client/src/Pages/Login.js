@@ -49,17 +49,17 @@ export default function Login() {
         <table id="login">
           <tr>
               <th>Username</th>
-              <input id="text" type="text" name="username" size="30" maxlength="50" required/>
+              <input id="text" type="text" name="username" size="30" maxlength="50" placeholder='Enter Username' onChange={handleUsernameChange} required/>
           </tr>
           <tr>
               <th>Password</th>
-              <input id="text" type="text" name="password" size="30" maxlength="30" required/>
+              <input id="text" type="text" name="password" size="30" maxlength="30" placeholder='Enter Password' onChange={handlePasswordChange} required/>
           </tr>
         </table>
             <br></br>
             <center>
             <Link to="/Profile">
-              <button id = "button">Login</button>
+              <button id = "button" onSubmit={handleLoginSubmit}>Login</button>
             </Link>
             </center>
             <br></br>
