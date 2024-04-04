@@ -1,13 +1,13 @@
-import React from 'react'
-import {Link, NavLink} from 'react-router-dom';
+import React, {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom';
 import "./Login.css"
-import { client } from './axiosClient'
+import { client } from '../axiosClient'
 
 const LoginForm = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const navigate = useNavigate()
-  const token = localStorage.getItem('token')
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token');
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value)
@@ -72,4 +72,4 @@ const LoginForm = () => {
   )
 }
 
-export default LoginForm
+export default LoginForm;

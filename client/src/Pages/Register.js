@@ -1,7 +1,7 @@
-import React from 'react'
-import {Link} from 'react-router-dom';
-import "./Profile.css"
-import { client } from './axiosClient'
+import React, {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom';
+import "./Register.css"
+import { client } from '../axiosClient'
 
 const RegistrationForm = () => {
   const [username, setUsername] = useState('')
@@ -106,15 +106,24 @@ const RegistrationForm = () => {
   
   return (
     <div>
+      <form>
         <center>
         <h1>Registration Form</h1>
             <table id="userInfo">
                 <tr>
-                    <th>Username</th>
+                    <th>Username: </th>
                     <input id="text" type="text" name="username" size="30" maxlength="50" pattern='[a-zA-Z0-9]{3,}' placeholder='Enter Username' onChange={handleUsernameChange} required/>
                 </tr>
                 <tr>
-                    <th>Password</th>
+                    <th>Email: </th>
+                    <input id="text" type="email" name="email" size="30" maxlength="50" placeholder='Enter email address' onChange={handleEmailChange} required/>
+                </tr>
+                <tr>
+                    <th>Phone Number: </th>
+                    <input id="text" type="email" name="email" size="30" maxlength="50" placeholder='Enter email address' onChange={handleEmailChange} required/>
+                </tr>
+                <tr>
+                    <th>Password: </th>
                     <input id="text" type="text" name="password" size="30" maxlength="30" pattern='[a-zA-Z0-9]{3,}' placeholder='Enter password' onChange={handleConfirmPasswordChange} required/>
                 </tr>
             </table>
@@ -125,13 +134,17 @@ const RegistrationForm = () => {
             <button id = "button" onSubmit={handleRegisterSubmit}>Complete Registration</button>
           </Link>
         </center>
+        
         <br></br>
         <center>
         <Link to="/Login">
           <button id = "button">Already have an account? Login here</button>
         </Link>
         </center>
+      </form>
     </div>
   )
 }
+
+export default RegistrationForm;
 
