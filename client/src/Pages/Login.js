@@ -27,7 +27,7 @@ const LoginForm = () => {
         localStorage.setItem('token', response.data.token)
         localStorage.setItem('username', username)
         localStorage.setItem('password', password)
-        navigate('/profile')
+        navigate('/profile/edit')
       })
       .catch((error) => {
         const status = error.response.status
@@ -39,12 +39,9 @@ const LoginForm = () => {
       })
   }
 
-  if (token) {
-    navigate('/profile')
-  }
-
   return (
     <div>
+      <form onSubmit={handleLoginSubmit}>
       <h1>Login</h1>
         <table id="login">
           <tr>
@@ -58,9 +55,7 @@ const LoginForm = () => {
         </table>
             <br></br>
             <center>
-            <Link to="/Profile">
-              <button id = "button" onSubmit={handleLoginSubmit}>Login</button>
-            </Link>
+              <button type="submit" id = "button" onSubmit={handleLoginSubmit}>Login</button>
             </center>
             <br></br>
             <center>
@@ -68,6 +63,7 @@ const LoginForm = () => {
               <button id = "button">Don't have an account? Register</button>
             </Link>
             </center>
+        </form>
     </div>
   )
 }

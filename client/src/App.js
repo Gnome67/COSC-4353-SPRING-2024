@@ -15,10 +15,10 @@ function App() {
 		<Routes>
 			<Route path="/" element={<Home />}/>
 			<Route path="/Login" element={<LoginForm />} />
-			<Route path="/Profile" element={<Profile />} />
+			<Route path="/profile/edit" element={<Profile />} />
 			<Route path="/Register" element={<RegistrationForm />} />
-			<Route path="/QuoteForm" element={<FuelQuoteForm />} />
-			<Route path="/QuotePage" element={<QuotePage />} />
+			<Route path="/quote" element={<FuelQuoteForm />} />
+			<Route path="/history" element={<QuotePage />} />
 		</Routes>
     </div>
   );

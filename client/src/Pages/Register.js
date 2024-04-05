@@ -106,7 +106,7 @@ const RegistrationForm = () => {
   
   return (
     <div>
-      <form>
+      <form onSubmit={handleRegisterSubmit}>
         <center>
         <h1>Registration Form</h1>
             <table id="userInfo">
@@ -120,19 +120,21 @@ const RegistrationForm = () => {
                 </tr>
                 <tr>
                     <th>Phone Number: </th>
-                    <input id="text" type="email" name="email" size="30" maxlength="50" placeholder='Enter email address' onChange={handleEmailChange} required/>
+                    <input id="text" type="tel" name="phone" size="30" maxlength="50" placeholder='Enter Phone Number' onChange={handleNumberChange} required/>
                 </tr>
                 <tr>
                     <th>Password: </th>
-                    <input id="text" type="text" name="password" size="30" maxlength="30" pattern='[a-zA-Z0-9]{3,}' placeholder='Enter password' onChange={handleConfirmPasswordChange} required/>
+                    <input id="text" type="text" name="password" size="30" maxlength="30" placeholder='Enter password' onChange={handlePasswordChange} pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters' required/>
+                </tr>
+                <tr>
+                    <th>Confirm Password: </th>
+                    <input id="text" type="text" name="password2" size="30" maxlength="30" placeholder='Re-enter password' onChange={handleConfirmPasswordChange} required/>
                 </tr>
             </table>
         </center>
         <br></br>
         <center>
-          <Link to="/Login">
-            <button id = "button" onSubmit={handleRegisterSubmit}>Complete Registration</button>
-          </Link>
+            <button type="submit" id = "button" onSubmit={handleRegisterSubmit}>Complete Registration</button>
         </center>
         
         <br></br>

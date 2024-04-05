@@ -1,84 +1,90 @@
 import React, {useEffect, useState} from 'react'
+import { useNavigate } from 'react-router-dom'
+import { clientWithAuth } from '../axiosClient'
 import "./Profile.css"
 
 export default function Profile() {
-    const [profileData, setProfileData] = useState({
-        full_name: '',
-        email: '',
-        address1: '',
-        address2: '',
-        city: '',
-        state: '',
-        zipcode: '',
-        phone: '',
-        });
+    const [fullname, setFullname] = useState('')
+  const [address1, setAddress1] = useState('')
+  const [address2, setAddress2] = useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
+  const [zipcode, setZipcode] = useState('')
+  const navigate = useNavigate()
 
-        const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProfileData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-        };
+  const handleChangeName = (e) => {
+    setFullname(e.target.value)
+  }
 
-        const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('/updateProfile', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(profileData),
-            });
-            const data = await response.json();
-            console.log(data); 
-            
-        } catch (error) {
-            console.error('Error updating profile:', error);
+  const handleChangeAddress1 = (e) => {
+    setAddress1(e.target.value)
+  }
+
+  const handleChangeAddress2 = (e) => {
+    setAddress2(e.target.value)
+  }
+
+  const handleChangeCity = (e) => {
+    setCity(e.target.value)
+  }
+
+  const handleChangeState = (e) => {
+    setState(e.target.value)
+  }
+
+  const handleChangeZipcode = (e) => {
+    setZipcode(e.target.value)
+  }
+
+  const handleProfileSubmit = async (e) => {
+    e.preventDefault()
+    const username = localStorage.getItem('username')
+    const token = localStorage.getItem('token')
+    await clientWithAuth(token)
+      .post('/profile/edit', {
+        username,
+        fullname,
+        address1,
+        address2,
+        city,
+        state,
+        zipcode,
+      })
+      .then((response) => {})
+      .catch((error) => {
+        const status = error.response.status
+        if (status === 400) {
+          alert('Submission failed!')
+          navigate('/profile/edit')
         }
-        };
+      })
+
+    navigate('/')
+  }
     
     
     useEffect(() => {
-        const fetchProfileData = async () => {
-            try {
-              const response = await fetch('/getProfile', {
-                method: 'GET',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username: 'username' }),
-              });
-              const data = await response.json();
-              setProfileData(data); // Assuming backend returns profile data in JSON format, unsure how knexClient works
-            } catch (error) {
-              console.error('Error fetching profile data:', error);
-            }
-          };
-      
-          fetchProfileData();
-
         const validStates = [
-          "Alabama", "Alaska", "Arizona", "Arkansas", "California",
-          "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
-          "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
-          "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
-          "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri",
-          "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
-          "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
-          "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
-          "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
-          "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+            "AL", "AK", "AZ", "AR", "CA",
+            "CO", "CT", "DE", "FL", "GA",
+            "HI", "ID", "IL", "IN", "IA",
+            "KS", "KY", "LA", "ME", "MD",
+            "MA", "MI", "MN", "MS", "MO",
+            "MT", "NE", "NV", "NH", "NJ",
+            "NM", "NY", "NC", "ND", "OH",
+            "OK", "OR", "PA", "RI", "SC",
+            "SD", "TN", "TX", "UT", "VT",
+            "VA", "WA", "WV", "WI", "WY"
         ];
     
         const inputElement = document.getElementById("stateInput");
     
-        const handleInput = () => {
+        const handleInput = (e) => {
             const inputValue = inputElement.value.trim().toLowerCase();
             const isValid = validStates.map(state => state.toLowerCase()).includes(inputValue);
-            const validationMessage = isValid ? "" : "Invalid state name";
-        
+            const validationMessage = isValid ? "" : "Invalid state initials";
+            if(isValid)
+                setState(e.target.value);
             document.getElementById("stateValidationMessage").textContent = validationMessage;
             inputElement.setCustomValidity(validationMessage);
         };
@@ -88,82 +94,61 @@ export default function Profile() {
         return () => {
           inputElement.removeEventListener("input", handleInput);
         };
+
+        
     }, []);
 
   return (
     <div id="profileForm">
-        <form className="form-wrapper" onSubmit={handleSubmit}>
+        <form className="form-wrapper" onSubmit={handleProfileSubmit}>
             <div className="form-container">
             <h1 id="title">Profile Customization</h1>
                 <div className="input">
                     <label className="text-label">Full Name <span className="required">&#42;</span></label>
                     <input className="text" id="full_name" type="text" name="full_name" 
                            placeholder="Enter Full Name" maxlength="50" 
-                           value={profileData.full_name}
-                           onChange={handleChange}
-                           required/>
-                </div>
-                <div className="input">
-                    <label className="text-label">Email <span className="required">&#42;</span></label>
-                    <input className="text" id="email" type="text" name="email" 
-                           placeholder="example@domain.com" maxlength="50" 
-                           pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Format is email@example.com"
-                           value={profileData.email}
-                           onChange={handleChange}
+                           onChange={handleChangeName}
                            required/>
                 </div>
                 <div className="input">
                     <label className="text-label">Address 1 <span className="required">&#42;</span></label>
                     <input className="text" id="address1" type="text" name="address1" 
                            placeholder="Street Name/Address" maxlength="50" 
-                           value={profileData.address1}
-                           onChange={handleChange}
+                           onChange={handleChangeAddress1}
                            required/>
                 </div>
                 <div className="input">
                     <label className="text-label">Address 2</label>
                     <input className="text" id="add2" type="text" name="address2" 
                            placeholder="Apt Number" maxlength="50"
-                           value={profileData.address2}
-                           onChange={handleChange}/>
+                           onChange={handleChangeAddress2}/>
                 </div>
                 <div className="location-container">
                     <div className="input-city">
                         <label className="text-label">City <span className="required">&#42;</span></label>
                         <input className="text" id="city" type="text" name="city" 
                                placeholder="City" maxlength="20" 
-                               value={profileData.city}
-                               onChange={handleChange}
+                               onChange={handleChangeCity}
                                required/>
                     </div>
                     <div className="input">
-                        <label className="text-label">State <span className="required">&#42;</span></label>
+                        <label className="text-label">State Initials<span className="required">&#42;</span></label>
                         <input className="text" id="stateInput" type="text" name="state" 
-                               placeholder="State" maxlength="15" 
-                               value={profileData.state}
-                               onChange={handleChange}
+                               placeholder="State Initials" maxlength="2" 
+                               onChange={handleChangeState}
                                required/>
                         <span id="stateValidationMessage" style={{ color: 'red' }}></span>
                     </div>
                     <div className="input">
                         <label className="text-label">Zip Code <span className="required">&#42;</span></label>
                         <input className="text" id="zipcode" type="text" name="zipcode" 
-                               placeholder="Zip Code (5 digits)" pattern="[0-9]{5}" maxlength="7" 
-                               value={profileData.zipcode}
-                               onChange={handleChange}
-                               required/>
-                    </div>
-                    <div className="input">
-                        <label className="text-label">Phone Number <span className="required">&#42;</span></label>
-                        <input className="text" id="phone" type="text" name="phone" 
-                               placeholder="000-000-0000" pattern="\d{3}-\d{3}-\d{4}" title="000-000-0000 format" maxlength="12" 
-                               value={profileData.phone}
-                               onChange={handleChange}
+                               placeholder="Zip Code (5 digits)" pattern="[0-9]{5}" maxlength="7"
+                               onChange={handleChangeZipcode}
                                required/>
                     </div>
                 </div>
                     <div className="button-wrapper">
-                        <button className="submit-button">Confirm Changes</button>
+                        <button className="submit-button" onSubmit={handleProfileSubmit}>Confirm Changes</button>
                     </div>
             </div>
         </form>
