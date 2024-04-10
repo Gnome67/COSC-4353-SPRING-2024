@@ -39,12 +39,13 @@ export default function QuotePage() {
             <table className='quoteTable'>
                 <thead>
                     <tr>
-                        <th className='quoteHeader'>Quote ID</th>
-                        <th className='quoteHeader'>Customer</th>
-                        <th className='quoteHeader'>Gallons Requested</th>
-                        <th className='quoteHeader'>Delivery Address</th>
                         <th className='quoteHeader'>Delivery Date</th>
-                        <th className='quoteHeader'>Suggested Price</th>
+                        <th className='quoteHeader'>Gallons Requested</th>
+                        <th className='quoteHeader'>Address</th>
+                        <th className='quoteHeader'>City</th>
+                        <th className='quoteHeader'>State</th>
+                        <th className='quoteHeader'>Zip Code</th>
+                        <th className='quoteHeader'>Price per Gallon</th>
                         <th className='quoteHeader'>Total Amount Due</th>
                     </tr>
                 </thead>
