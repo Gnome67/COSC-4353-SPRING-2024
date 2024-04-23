@@ -4,7 +4,7 @@
     font-family: "Roboto", sans-serif;
 }
 
-header {
+#grid-container header {
     background-color: #666;
     padding: 10px;
     font-size: 35px;
@@ -21,7 +21,7 @@ header {
     padding:10px;
   }
 
-  h1 {
+  #grid-container  h1 {
     text-align:center;
   }
 
@@ -37,14 +37,14 @@ header {
 
   }
 
-  label {width:50%;}
+  #grid-container  label {width:50%;}
 
-  input {
+  #grid-container  input {
     width: 50%;
     float:right;
   }
 
-  button {width:100%;}
+
 
   #grid-container > div { padding:5px; text-align:left;min-width:100%;}
 

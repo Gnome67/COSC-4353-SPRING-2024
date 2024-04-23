@@ -132,12 +132,12 @@ export default function FuelQuoteForm() {
                         <label for="date">Delivery Date: </label>
                         <input type="date" name='delivery_date' min={new Date().toISOString().split('T')[0]} onChange={handleDateChange} required/>
                     </div>
-                    <div id = "grid-h"><button type="submit" onSubmit={handleGetQuote}>Get Quote</button><br></br><br></br><br></br></div>
+                    <div id = "grid-h"><center><button className="center-button" type="submit" onSubmit={handleGetQuote}>Get Quote</button></center><br></br><br></br><br></br></div>
                 </div>
             </form>
             <form id="grid-container" onSubmit={handleQuoteSubmit}>
                 <div id = "grid-i">
-                    <label for="">Suggested Price Per Gallon: </label>
+                    <label for="">Sugg. Price Per Gallon: </label>
                     <input type='text' id='suggested_gallon_price' name='suggested_gallon_price' value={formatter.format(quote.price)} readOnly/>
                     </div>
                     <div id = "grid-j">
@@ -145,7 +145,7 @@ export default function FuelQuoteForm() {
                         <input type='text' id='total_cost' name='total_cost' placeholder='$' value={formatter.format(quote.due)} readOnly />
                     </div>
                     <div id = "grid-k">
-                        <button type='submit' onSubmit={handleQuoteSubmit}>Submit Quote</button>
+                        <center><button className="center-button" type='submit' onSubmit={handleQuoteSubmit}>Submit Quote</button></center>
                     </div>
             </form>
         </div>
