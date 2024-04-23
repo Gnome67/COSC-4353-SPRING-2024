@@ -72,6 +72,8 @@ const RegistrationForm = () => {
       return
     }
 
+    console.log(number);
+
     await client
       .post('/register', { username, password, email, number, confirmpassword })
       .then((response) => {})
@@ -80,7 +82,7 @@ const RegistrationForm = () => {
         const status = error.response.status
         if (status === 400) {
           alert('Registration failed!')
-          navigate('/registration')
+          navigate('/Register')
         }
       })
     await client
@@ -94,7 +96,7 @@ const RegistrationForm = () => {
         const status = error.response.status
         if (status === 400) {
           alert('Login failed!')
-          navigate('/login')
+          navigate('/Login')
         }
       })
     navigate('/profile/edit')
@@ -116,11 +118,11 @@ const RegistrationForm = () => {
                 </tr>
                 <tr>
                     <th>Email: </th>
-                    <input id="text" type="email" name="email" size="30" maxlength="50" placeholder='Enter email address' onChange={handleEmailChange} required/>
+                    <input id="text" type="email" name="email" size="30" maxlength="50" placeholder='Enter email address' pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email address" onChange={handleEmailChange} required/>
                 </tr>
                 <tr>
                     <th>Phone Number: </th>
-                    <input id="text" type="tel" name="phone" size="30" maxlength="50" placeholder='Enter Phone Number' onChange={handleNumberChange} required/>
+                    <input id="text" type="tel" name="phone" size="30" maxlength="50" placeholder='Enter Phone Number' pattern="\(\d{3}\)-\d{3}-\d{4}" title="Must be 10 digits long" onChange={handleNumberChange} required/>
                 </tr>
                 <tr>
                     <th>Password: </th>
