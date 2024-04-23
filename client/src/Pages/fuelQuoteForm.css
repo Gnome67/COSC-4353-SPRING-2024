@@ -21,8 +21,6 @@ header {
     padding:10px;
   }
 
-  .street * {width:75%;}
-
   h1 {
     text-align:center;
   }
@@ -30,15 +28,25 @@ header {
   #grid-container {  
 
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33% 34% 33%;
     justify-content:center;
     margin-left: auto;
     margin-right: auto;
-    width:800px;
+    width:400px;
+    text-align:left;
 
   }
 
-  #grid-container > div { padding:5px; text-align:center;}
+  label {width:50%;}
+
+  input {
+    width: 50%;
+    float:right;
+  }
+
+  button {width:100%;}
+
+  #grid-container > div { padding:5px; text-align:left;min-width:100%;}
 
   #grid-a { grid-row:1/2; grid-column:1/4; }
 
@@ -46,18 +54,18 @@ header {
 
   #grid-c { grid-row:3/4; grid-column:1/4;}
 
-  #grid-d { grid-row:4/5; grid-column:1/2;}
+  #grid-d { grid-row:4/5; grid-column:1/4;}
 
-  #grid-e { grid-row:4/5; grid-column:2/3;}
+  #grid-e { grid-row:5/6; grid-column:1/4;}
 
-  #grid-f { grid-row:4/5; grid-column:3/4;}
+  #grid-f { grid-row:6/7; grid-column:1/4;}
 
-  #grid-g {grid-row:5/6; grid-column:1/4;}
+  #grid-g {grid-row:7/8; grid-column:1/4;}
 
-  #grid-h {grid-row:6/7; grid-column:1/4;}
+  #grid-h {grid-row:8/9; grid-column:2/3;}
 
-  #grid-i {grid-row:7/8; grid-column:1/4;}
+  #grid-i {grid-row:9/10; grid-column:1/4;}
 
-  #grid-j {grid-row:8/9; grid-column:1/4;}
+  #grid-j {grid-row:10/11; grid-column:1/4;}
 
-  #grid-k {grid-row:9/10; grid-column:1/4;}
+  #grid-k {grid-row:11/12; grid-column:2/3;}
