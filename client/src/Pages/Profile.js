@@ -59,7 +59,7 @@ export default function Profile() {
         }
       })
 
-    navigate('/')
+    navigate('/quote')
   }
     
     
@@ -142,7 +142,7 @@ export default function Profile() {
                     <div className="input">
                         <label className="text-label">Zip Code <span className="required">&#42;</span></label>
                         <input className="text" id="zipcode" type="text" name="zipcode" 
-                               placeholder="Zip Code (5 digits)" pattern="[0-9]{5}" maxlength="7"
+                               placeholder="Zip Code (5 digits)" pattern="[0-9]{5}" maxlength="5"
                                onChange={handleChangeZipcode}
                                required/>
                     </div>

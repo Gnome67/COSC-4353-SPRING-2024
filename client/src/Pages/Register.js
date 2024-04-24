@@ -114,11 +114,11 @@ const RegistrationForm = () => {
             <table id="userInfo">
                 <tr>
                     <th>Username: </th>
-                    <input id="text" type="text" name="username" size="30" maxlength="50" pattern='[a-zA-Z0-9]{3,}' placeholder='Enter Username' onChange={handleUsernameChange} required/>
+                    <input id="text" type="text" name="username" size="30" maxlength="16" pattern='[a-zA-Z0-9]{3,}' placeholder='Enter Username' onChange={handleUsernameChange} required/>
                 </tr>
                 <tr>
                     <th>Email: </th>
-                    <input id="text" type="email" name="email" size="30" maxlength="50" placeholder='Enter email address' pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email address" onChange={handleEmailChange} required/>
+                    <input id="text" type="email" name="email" size="30" maxlength="50" placeholder='Enter email address' pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address" onChange={handleEmailChange} required/>
                 </tr>
                 <tr>
                     <th>Phone Number: </th>
